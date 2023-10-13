@@ -26,11 +26,12 @@ const app = Consumer.create({
         Subject: 'Delivered',
         Message: JSON.stringify(JSON.parse(message.Body)), // Can modify or add more details if required
         TopicArn: deliveredTopicArn,
-        MessageGroupId: MessageGroupId,
-        MessageDeduplicationId: chance.guid()
-    
+        MessageGroupId: 'labwork',
+        MessageDeduplicationId: chance.guid(),
       };
-      
+
+      console.log('Here is our payload!:', payload);
+
       sns.publish(payload).promise()
       .then(data => {
         console.log(data);
