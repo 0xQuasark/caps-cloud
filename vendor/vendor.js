@@ -19,7 +19,7 @@ function createPickup(orderDetails, orderId) {
     Subject: 'Pickup is ready',
     Message: orderDetails,
     TopicArn: pickupTopicArn,
-    MessageGroupId: orderId,
+    MessageGroupId: 'labwork',
     MessageDeduplicationId: chance.guid(),
   };
 
